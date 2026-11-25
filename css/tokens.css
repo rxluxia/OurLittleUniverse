@@ -1,0 +1,38 @@
+:root {
+  --black: #050505;
+  --charcoal: #171717;
+  --emerald: #20c98b;
+  --forest: #07543d;
+  --white: #f7f7f4;
+  --gray: #aaaab0;
+  --champagne: #d9c7a2;
+
+  --font-serif: Georgia, "Times New Roman", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --font-script: "Segoe Script", "Bradley Hand", "Brush Script MT", cursive;
+
+  --cursor-default: url("../assets/images/ui/cursor.svg") 12 12, auto;
+  --cursor-interactive: url("../assets/images/ui/cursor-hover.svg") 16 16, pointer;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  --stage-max-width: 1280px;
+
+  --z-base: 1;
+  --z-active: 10;
+  --z-nav: 100;
+
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-enter: cubic-bezier(0, 0.65, 0.35, 1);
+  --duration-fast: 180ms;
+  --duration-base: 420ms;
+  --duration-page: 620ms;
+}

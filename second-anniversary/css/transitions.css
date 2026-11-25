@@ -1,0 +1,91 @@
+.scene.fade-out,
+.scene.fade-in,
+.scene.zoom-to,
+.scene.crossfade-out,
+.scene.crossfade-in {
+  will-change: opacity, transform;
+  transition-timing-function: var(--ease-standard);
+}
+
+.scene.fade-out {
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+
+.scene.fade-in {
+  opacity: 1;
+  animation: scene-fade-in var(--duration-base) var(--ease-enter) both;
+}
+
+.scene.zoom-to {
+  opacity: 0;
+  transform: scale(1.08);
+  transition:
+    opacity var(--duration-page) var(--ease-enter),
+    transform var(--duration-page) var(--ease-enter);
+}
+
+.scene.crossfade-out {
+  animation: scene-crossfade-out var(--duration-page) var(--ease-standard) both;
+}
+
+.scene.crossfade-in {
+  animation: scene-crossfade-in var(--duration-page) var(--ease-enter) both;
+}
+
+@keyframes scene-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scene-crossfade-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+}
+
+@keyframes scene-crossfade-in {
+  from {
+    opacity: 0;
+    transform: scale(1.015);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene.fade-out,
+  .scene.fade-in,
+  .scene.zoom-to,
+  .scene.crossfade-out,
+  .scene.crossfade-in {
+    transition-duration: 1ms;
+  }
+
+  .scene.zoom-to {
+    transform: none;
+  }
+
+  .scene.fade-in {
+    animation-duration: 1ms;
+  }
+
+  .scene.crossfade-out,
+  .scene.crossfade-in {
+    animation-duration: 1ms;
+  }
+}

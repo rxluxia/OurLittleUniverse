@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#050505">
+    <title>Our Little Universe</title>
+    <link rel="stylesheet" href="./css/tokens.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/transitions.css">
+    <link rel="stylesheet" href="./css/scenes/opening.css">
+    <link rel="stylesheet" href="./css/scenes/manga.css">
+    <link rel="stylesheet" href="./css/scenes/scrapbook.css">
+    <link rel="stylesheet" href="./css/scenes/poem.css">
+  </head>
+  <body>
+    <main id="stage" aria-live="polite">
+      <section class="scene is-active opening" data-scene="opening" aria-hidden="false">
+        <canvas class="opening__universe" aria-hidden="true"></canvas>
+        <button class="btn opening__start" type="button">
+          <span class="opening__start-label">CLICK TO START</span>
+        </button>
+      </section>
+      <section class="scene manga" data-scene="manga" aria-label="Manga" aria-hidden="true" inert>
+        <canvas class="manga__universe" aria-hidden="true"></canvas>
+        <div class="manga__book">
+          <div class="manga__spread-frame" aria-live="polite">
+            <div class="manga__spread manga__underlay"></div>
+            <div class="manga__turning-sheet" aria-hidden="true">
+              <div class="manga__leaf">
+                <figure class="manga__page manga__leaf-face manga__leaf-front"></figure>
+                <figure class="manga__page manga__leaf-face manga__leaf-back"></figure>
+              </div>
+            </div>
+          </div>
+          <button class="btn manga__previous" type="button" aria-label="Previous spread">
+            <span class="manga__back-arrow" aria-hidden="true">‹</span>
+          </button>
+          <button class="btn manga__next" type="button" aria-label="Next spread">
+            <span aria-hidden="true">›</span>
+          </button>
+          <button class="btn manga__continue" type="button" hidden>click here</button>
+        </div>
+      </section>
+      <section class="scene scrapbook" data-scene="scrapbook" aria-label="Our Little Universe scrapbook" aria-hidden="true" inert>
+        <div class="scrapbook__intro">
+          <canvas class="scrapbook__universe" aria-hidden="true"></canvas>
+          <button class="scrapbook__cover" type="button">
+            <span class="scrapbook__cover-title">OUR LITTLE UNIVERSE</span>
+            <span class="scrapbook__cover-note">This part is a work in progress.</span>
+          </button>
+        </div>
+        <div class="scrapbook__reader" hidden>
+          <canvas class="scrapbook__reader-universe" aria-hidden="true"></canvas>
+          <div class="scrapbook__page-shell">
+            <div class="scrapbook__pages" aria-live="polite"></div>
+            <div class="scrapbook__turning-leaf" aria-hidden="true"></div>
+            <nav class="scrapbook__controls" aria-label="Scrapbook pages">
+              <button class="btn scrapbook__previous" type="button" aria-label="Previous spread">
+                <span class="scrapbook__nav-arrow" aria-hidden="true">‹</span>
+                <span>Back</span>
+              </button>
+              <p class="scrapbook__page-indicator" aria-live="polite"></p>
+              <button class="btn scrapbook__next" type="button" aria-label="Next spread">
+                <span>Next</span>
+                <span class="scrapbook__nav-arrow" aria-hidden="true">›</span>
+              </button>
+            </nav>
+          </div>
+        </div>
+        <dialog class="scrapbook__viewer" aria-label="Expanded scrapbook photo">
+          <button class="btn scrapbook__viewer-close" type="button" aria-label="Close photo">×</button>
+          <img class="scrapbook__viewer-image" alt="">
+        </dialog>
+      </section>
+      <section class="scene" data-scene="closing" aria-hidden="true" inert></section>
+      <section class="scene poem" data-scene="poem" aria-label="Monthsary note" aria-hidden="true" inert>
+        <canvas class="poem__universe" aria-hidden="true"></canvas>
+        <div class="poem__message" aria-live="polite" aria-busy="true">
+          <p class="poem__progress">This part is a work in progress.</p>
+          <p class="poem__note">Sorry, mahal, this page isn't done yet. I'll finish it later.</p>
+          <h1>Happy Monthsary <span class="poem__emoji" role="img" aria-label="pleading face">🥺</span></h1>
+        </div>
+        <nav class="poem__nav" aria-label="Return to a part" aria-hidden="true" inert>
+          <a class="poem__nav-link" href="#opening" data-target="opening">Start</a>
+          <a class="poem__nav-link" href="#manga" data-target="manga">Manga</a>
+          <a class="poem__nav-link" href="#scrapbook" data-target="scrapbook">Scrapbook</a>
+        </nav>
+      </section>
+    </main>
+
+    <nav id="site-nav" aria-label="Main navigation" hidden>
+      <a href="#story" data-target="manga">Story</a>
+      <a href="#scrapbook" data-target="scrapbook">Scrapbook</a>
+      <a href="#poem" data-target="poem">Poem</a>
+    </nav>
+
+    <div id="rotate-gate" role="alertdialog" aria-live="polite" aria-labelledby="rotate-gate-message" hidden>
+      <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+        <rect x="7" y="15" width="27" height="18" rx="2"></rect>
+        <path d="M14 37a14 14 0 0 0 23-8"></path>
+        <path d="M37 24v6l-6-1"></path>
+      </svg>
+      <p id="rotate-gate-message">Please rotate your device to landscape to continue.</p>
+    </div>
+
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
